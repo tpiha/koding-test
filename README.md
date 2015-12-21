@@ -2,7 +2,7 @@
 
 ./server_check.sh /var/log/aptitude /var/log/popularity-contest module-init-tools postgres
 
-## Arugments
+## Arguments
 
 1 - path to the file that needs to exist  
 2 - path to the file that needs content check  

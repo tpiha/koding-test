@@ -7,7 +7,7 @@
      failed_when: file.stat.exists == False
 
    - name: File Content Check
-     command: bash -c 'cat {{ file_content_path }} | grep {{ file_content_content }}'
+     command: bash -c 'grep {{ file_content_content }} {{ file_content_path }}'
      changed_when: False
      register: command_result
      failed_when: "'{{ file_content_content }}' not in command_result.stdout"
