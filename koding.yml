@@ -1,0 +1,19 @@
+- hosts: servers
+  tasks:
+
+   - name: File Exists Check
+     stat: path={{ file_exists_path }}
+     register: file
+     failed_when: file.stat.exists == False
+
+   - name: File Content Check
+     command: bash -c 'cat {{ file_content_path }} | grep {{ file_content_content }}'
+     changed_when: False
+     register: command_result
+     failed_when: "'{{ file_content_content }}' not in command_result.stdout"
+
+   - name: Process Running Check
+     command: bash -c 'ps -A | grep {{ process }}'
+     changed_when: False
+     register: command_result
+     failed_when: "'{{ process }}' not in command_result.stdout"

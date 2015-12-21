@@ -1,0 +1,2 @@
+[servers]
+127.0.0.1	ansible_connection=ssh	ansible_ssh_user=testuser	ansible_ssh_private_key_file=/private/key/path/id_rsa
